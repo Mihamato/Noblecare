@@ -13,12 +13,16 @@
   .hero {
     min-height: 100vh; position: relative;
     display: flex; align-items: center;
-    background: var(--navy); overflow: hidden; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1400&q=80'); background-size: cover; background-position: center;
+    background: var(--navy); overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,58,95,0.8) 0%, transparent 70%),
-                linear-gradient(135deg, #0a1628 0%, #0d2040 40%, #0a1830 100%);
+    background-image: url('img-jet.jpg');
+    background-size: cover; background-position: center;
+  }
+  .hero-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,22,40,0.93) 0%, rgba(10,22,40,0.72) 50%, rgba(10,22,40,0.88) 100%);
   }
   .hero-grid {
     position: absolute; inset: 0; opacity: 0.04;
@@ -176,6 +180,37 @@
   </div>
 </section>
 
+
+<!-- IMAGE GALLERY -->
+<section style="padding: 0; background: var(--navy);">
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2px;">
+    <div style="height: 320px; overflow: hidden; position: relative;">
+      <img src="img-luxury.jpg" alt="Luxury interior" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">VIP Hospitality</span>
+      </div>
+    </div>
+    <div style="height: 320px; overflow: hidden; position: relative;">
+      <img src="img-paris.jpg" alt="Paris Place Vendôme" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Paris, France</span>
+      </div>
+    </div>
+    <div style="height: 320px; overflow: hidden; position: relative;">
+      <img src="img-sculpture.jpg" alt="European excellence" style="width:100%; height:100%; object-fit:cover; object-position: top; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">European Excellence</span>
+      </div>
+    </div>
+    <div style="height: 320px; overflow: hidden; position: relative;">
+      <img src="img-jet.jpg" alt="Private travel" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Private Travel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="cta-banner">
   <div class="container" style="max-width:700px;">
@@ -193,6 +228,7 @@
       <a href="destinations.html">Destinations</a>
       <a href="process.html">Process</a>
       <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
