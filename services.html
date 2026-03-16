@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — NobleCare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .services-section { background: var(--off-white); }
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; margin-top: 3rem; }
+  .service-card {
+    background: var(--white); padding: 3rem 2.5rem;
+    position: relative; overflow: hidden; transition: background 0.4s;
+  }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--gold); transform: scaleX(0);
+    transition: transform 0.4s; transform-origin: left;
+  }
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover::after { transform: scaleX(1); }
+  .service-card:hover .service-num { color: rgba(201,168,76,0.15); }
+  .service-card:hover .service-name { color: var(--white); }
+  .service-card:hover .service-desc { color: rgba(255,255,255,0.5); }
+  .service-card:hover .service-list li { color: rgba(255,255,255,0.45); border-bottom-color: rgba(255,255,255,0.05); }
+  .service-num { font-family: var(--serif); font-size: 5rem; font-weight: 300; color: rgba(10,22,40,0.06); line-height: 1; margin-bottom: 1.5rem; transition: color 0.4s; }
+  .service-name { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-bottom: 0.75rem; transition: color 0.4s; }
+  .service-desc { font-size: 0.78rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 1.5rem; transition: color 0.4s; }
+  .service-list { list-style: none; }
+  .service-list li {
+    font-size: 0.72rem; color: var(--text-light); padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.6rem; transition: color 0.4s, border-color 0.4s;
+  }
+  .service-list li::before { content: '—'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; }
+
+  /* PRICING */
+  .pricing-section { background: var(--white); }
+  .pricing-card {
+    background: var(--navy); padding: 4rem; max-width: 700px; margin: 3rem auto 0;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .pricing-card::before {
+    content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 60%; height: 2px; background: var(--gold);
+  }
+  .pricing-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .pricing-amount { font-family: var(--serif); font-size: 4rem; font-weight: 300; color: var(--white); line-height: 1; }
+  .pricing-currency { font-size: 1.5rem; vertical-align: top; padding-top: 0.8rem; display: inline-block; }
+  .pricing-period { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin: 0.5rem 0 1.5rem; }
+  .pricing-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 2rem; }
+
+  @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Noble<span>Care</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Private Consultation</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="page-header-content container">
+    <p class="eyebrow">Our Services</p>
+    <h1>A Complete Suite of<br><em>Premium Medical Services</em></h1>
+  </div>
+</div>
+
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Medical Coordination</span><span>◆</span><span>Private Travel</span><span>◆</span><span>VIP Hospitality</span><span>◆</span><span>Specialist Access</span><span>◆</span><span>Personal Assistance</span><span>◆</span><span>Secure Confidentiality</span><span>◆</span>
+    <span>Medical Coordination</span><span>◆</span><span>Private Travel</span><span>◆</span><span>VIP Hospitality</span><span>◆</span><span>Specialist Access</span><span>◆</span><span>Personal Assistance</span><span>◆</span><span>Secure Confidentiality</span><span>◆</span>
+  </div>
+</div>
+
+<section class="services-section">
+  <div class="container">
+    <p class="section-tag">What We Offer</p>
+    <h2 class="section-title">Every Aspect of Your Journey,<br><em>Perfectly Managed</em></h2>
+    <p class="section-sub">From your first contact to full recovery, our team orchestrates each detail with precision and discretion.</p>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-num">01</div>
+        <div class="service-name">Medical Coordination</div>
+        <p class="service-desc">Expert analysis of your medical file and direct access to world-leading specialists across every discipline. We identify the right institution and the right expert for your exact condition.</p>
+        <ul class="service-list">
+          <li>Comprehensive medical file evaluation</li>
+          <li>Identification of optimal hospital & specialist</li>
+          <li>Priority appointment scheduling</li>
+          <li>Oncology, cardiology & rare diseases</li>
+          <li>Second opinion services</li>
+          <li>Treatment plan coordination</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">02</div>
+        <div class="service-name">Travel & Logistics</div>
+        <p class="service-desc">Seamless international travel arrangements including medical visa procurement, private aviation coordination, and premium accommodation — so your focus remains entirely on your health.</p>
+        <ul class="service-list">
+          <li>Medical visa procurement & assistance</li>
+          <li>Private jet & business class coordination</li>
+          <li>5-star hotel & hospital suite booking</li>
+          <li>Private airport transfers</li>
+          <li>Family accommodation arrangements</li>
+          <li>Return journey planning</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">03</div>
+        <div class="service-name">Personal Assistance</div>
+        <p class="service-desc">A dedicated personal assistant accompanies you throughout your entire medical journey, ensuring clear communication and seamless coordination at every step.</p>
+        <ul class="service-list">
+          <li>Certified medical interpreters (EN / FR / AR)</li>
+          <li>24h dedicated personal assistant</li>
+          <li>Hospital accompaniment & liaison</li>
+          <li>Administrative & paperwork support</li>
+          <li>Family communication & updates</li>
+          <li>Post-consultation follow-up</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-num">04</div>
+        <div class="service-name">VIP Services</div>
+        <p class="service-desc">The highest standard of private care and security for clients who require complete discretion and an uncompromising level of personal comfort.</p>
+        <ul class="service-list">
+          <li>Private security detail</li>
+          <li>Premium hospital suites & private rooms</li>
+          <li>Private chef if required</li>
+          <li>Luxury post-operative care arrangements</li>
+          <li>Companion & family concierge services</li>
+          <li>Confidential communications management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="container">
+    <p class="section-tag" style="text-align:center;">Concierge Fee</p>
+    <h2 class="section-title" style="text-align:center; max-width:500px; margin: 0 auto 0.5rem;">Transparent,<br><em>All-Inclusive Pricing</em></h2>
+    <div class="pricing-card fade-up">
+      <div class="pricing-label">Base Concierge Fee</div>
+      <div class="pricing-amount"><span class="pricing-currency">$</span>2,000</div>
+      <div class="pricing-period">per case — excluding medical & travel costs</div>
+      <p class="pricing-desc">Our concierge fee covers the full coordination service: medical file analysis, specialist identification, appointment scheduling, and logistical management. Medical treatment costs, travel, and accommodation are billed separately and transparently.</p>
+      <a href="contact.html" class="btn-primary">Request a Detailed Quote</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Noble<span>Care</span></a>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
+  });
+  const observer = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

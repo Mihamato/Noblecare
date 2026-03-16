@@ -6,71 +6,19 @@
 <title>NobleCare — Elite International Medical Concierge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy: #0a1628;
-    --navy-mid: #122040;
-    --navy-light: #1e3a5f;
-    --gold: #c9a84c;
-    --gold-light: #e2c97e;
-    --gold-pale: #f5edda;
-    --white: #ffffff;
-    --off-white: #f8f6f1;
-    --text-dark: #1a1a2e;
-    --text-mid: #4a4a6a;
-    --text-light: #8a8aaa;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Montserrat', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--sans); background: var(--white); color: var(--text-dark); overflow-x: hidden; }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem 4rem;
-    background: rgba(10,22,40,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    transition: padding 0.3s;
-  }
-  .nav-logo {
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--white);
-    letter-spacing: 0.08em;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a { 
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; 
-    text-transform: uppercase; color: rgba(255,255,255,0.75); 
-    text-decoration: none; transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--gold); }
-  .nav-cta {
-    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
-    padding: 0.65rem 1.6rem; border: 1px solid var(--gold); color: var(--gold);
-    background: transparent; cursor: pointer; text-decoration: none;
-    transition: all 0.3s;
-  }
-  .nav-cta:hover { background: var(--gold); color: var(--navy); }
-
   /* ── HERO ── */
   .hero {
     min-height: 100vh; position: relative;
     display: flex; align-items: center;
-    background: var(--navy);
-    overflow: hidden;
+    background: var(--navy); overflow: hidden;
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background: 
-      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,58,95,0.8) 0%, transparent 70%),
-      linear-gradient(135deg, #0a1628 0%, #0d2040 40%, #0a1830 100%);
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(30,58,95,0.8) 0%, transparent 70%),
+                linear-gradient(135deg, #0a1628 0%, #0d2040 40%, #0a1830 100%);
   }
   .hero-grid {
     position: absolute; inset: 0; opacity: 0.04;
@@ -81,13 +29,11 @@
   .hero-accent {
     position: absolute; top: 15%; right: 8%;
     width: 380px; height: 380px;
-    border: 1px solid rgba(201,168,76,0.15);
-    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15); border-radius: 50%;
   }
   .hero-accent::before {
     content: ''; position: absolute; inset: 30px;
-    border: 1px solid rgba(201,168,76,0.1);
-    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.1); border-radius: 50%;
   }
   .hero-content {
     position: relative; z-index: 2;
@@ -98,26 +44,14 @@
     font-size: 0.65rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;
   }
-  .hero-text .eyebrow::before {
-    content: ''; width: 40px; height: 1px; background: var(--gold);
-  }
+  .hero-text .eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
   .hero-text h1 {
     font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 4.2rem); font-weight: 300;
     line-height: 1.15; color: var(--white); margin-bottom: 1.5rem;
   }
   .hero-text h1 em { font-style: italic; color: var(--gold-light); }
-  .hero-text p {
-    font-size: 0.85rem; font-weight: 300; line-height: 1.85;
-    color: rgba(255,255,255,0.6); max-width: 440px; margin-bottom: 2.5rem;
-  }
-  .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
-  .btn-primary {
-    font-family: var(--sans); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; padding: 1rem 2.2rem; background: var(--gold);
-    color: var(--navy); border: none; cursor: pointer; text-decoration: none;
-    transition: all 0.3s;
-  }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .hero-text p { font-size: 0.85rem; font-weight: 300; line-height: 1.85; color: rgba(255,255,255,0.6); max-width: 440px; margin-bottom: 2.5rem; }
+  .hero-actions { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
   .btn-ghost {
     font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s;
@@ -125,802 +59,151 @@
   }
   .btn-ghost::after { content: '→'; font-size: 1rem; }
   .btn-ghost:hover { color: var(--gold); }
-
-  .hero-stats {
-    display: flex; flex-direction: column; gap: 2rem;
-    padding: 2rem; border-left: 1px solid rgba(201,168,76,0.2);
-  }
+  .hero-badges { display: flex; gap: 1.5rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .badge { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 0.4rem; }
+  .badge::before { content: '◆'; font-size: 0.4rem; color: var(--gold); }
+  .hero-stats { display: flex; flex-direction: column; gap: 2rem; padding: 2rem; border-left: 1px solid rgba(201,168,76,0.2); }
   .stat { padding-left: 1.5rem; border-left: 2px solid var(--gold); }
-  .stat-num {
-    font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--white);
-    line-height: 1;
-  }
+  .stat-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--white); line-height: 1; }
   .stat-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 0.3rem; }
 
-  .hero-badges {
-    display: flex; gap: 1.5rem; margin-top: 2rem; padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .badge {
-    font-size: 0.62rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 0.4rem;
-  }
-  .badge::before { content: '◆'; font-size: 0.4rem; color: var(--gold); }
-
-  /* ── MARQUEE ── */
-  .marquee-bar {
-    background: var(--gold); padding: 0.75rem 0; overflow: hidden; white-space: nowrap;
-  }
-  .marquee-track { display: inline-flex; animation: marquee 25s linear infinite; }
-  .marquee-track span {
-    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--navy); padding: 0 2rem;
-  }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ── SECTIONS COMMON ── */
-  section { padding: 6rem 4rem; }
-  .container { max-width: 1200px; margin: 0 auto; }
-  .section-tag {
-    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: var(--serif); font-size: clamp(2rem, 3vw, 3rem); font-weight: 300;
-    line-height: 1.2; color: var(--navy); margin-bottom: 1.2rem;
-  }
-  .section-title em { font-style: italic; }
-  .section-sub {
-    font-size: 0.82rem; font-weight: 300; line-height: 1.8;
-    color: var(--text-mid); max-width: 560px;
-  }
-
-  /* ── SERVICES ── */
-  .services { background: var(--off-white); }
-  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px;
-  }
-  .service-card {
+  /* ── OVERVIEW CARDS ── */
+  .overview { background: var(--off-white); }
+  .overview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; }
+  .ov-card {
     background: var(--white); padding: 2.5rem 2rem;
-    position: relative; overflow: hidden;
-    transition: background 0.4s;
+    border-top: 3px solid transparent; transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none; display: block; color: inherit;
   }
-  .service-card::after {
-    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-    height: 2px; background: var(--gold); transform: scaleX(0);
-    transition: transform 0.4s; transform-origin: left;
-  }
-  .service-card:hover { background: var(--navy); }
-  .service-card:hover::after { transform: scaleX(1); }
-  .service-card:hover .service-num { color: rgba(201,168,76,0.3); }
-  .service-card:hover .service-name { color: var(--white); }
-  .service-card:hover .service-desc { color: rgba(255,255,255,0.55); }
-  .service-card:hover .service-list li { color: rgba(255,255,255,0.5); }
-  .service-num {
-    font-family: var(--serif); font-size: 3.5rem; font-weight: 300;
-    color: rgba(10,22,40,0.07); line-height: 1; margin-bottom: 1.5rem;
-    transition: color 0.4s;
-  }
-  .service-icon {
-    width: 36px; height: 36px; margin-bottom: 1rem;
-  }
-  .service-name {
-    font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--navy);
-    margin-bottom: 0.75rem; transition: color 0.4s;
-  }
-  .service-desc {
-    font-size: 0.75rem; line-height: 1.75; color: var(--text-mid);
-    margin-bottom: 1.2rem; transition: color 0.4s;
-  }
-  .service-list { list-style: none; }
-  .service-list li {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.05em;
-    color: var(--text-light); padding: 0.25rem 0; border-bottom: 1px solid rgba(0,0,0,0.05);
-    display: flex; align-items: center; gap: 0.5rem; transition: color 0.4s;
-  }
-  .service-list li::before { content: '—'; color: var(--gold); font-size: 0.6rem; }
+  .ov-card:hover { border-top-color: var(--gold); transform: translateY(-4px); }
+  .ov-num { font-family: var(--serif); font-size: 3rem; font-weight: 300; color: rgba(10,22,40,0.07); line-height: 1; margin-bottom: 1rem; }
+  .ov-title { font-family: var(--serif); font-size: 1.3rem; color: var(--navy); margin-bottom: 0.6rem; }
+  .ov-text { font-size: 0.75rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
+  .ov-link { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
 
-  /* ── WHY US ── */
-  .why { background: var(--navy); }
-  .why .section-title { color: var(--white); }
-  .why .section-sub { color: rgba(255,255,255,0.5); }
-  .why-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 4rem; align-items: center;
-  }
-  .why-features { display: flex; flex-direction: column; gap: 0; }
-  .why-feature {
-    padding: 1.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-    display: flex; gap: 1.5rem; align-items: flex-start;
-    cursor: pointer; transition: background 0.2s;
-  }
-  .why-feature:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-  .feature-num {
-    font-family: var(--serif); font-size: 1.1rem; font-weight: 300;
-    color: var(--gold); min-width: 2rem; padding-top: 0.1rem;
-  }
-  .feature-content {}
-  .feature-title {
-    font-family: var(--serif); font-size: 1.15rem; color: var(--white);
-    margin-bottom: 0.4rem;
-  }
-  .feature-text { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.7; }
-  .why-visual {
-    position: relative; height: 500px;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .why-card-main {
-    background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.2);
-    padding: 2.5rem; position: relative; z-index: 2; width: 100%;
-  }
-  .why-card-main .wc-label {
-    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
-  }
-  .why-card-main .wc-title {
-    font-family: var(--serif); font-size: 1.8rem; font-weight: 300; color: var(--white);
-    line-height: 1.3; margin-bottom: 1.2rem;
-  }
-  .conf-badge {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    padding: 0.5rem 1rem; border: 1px solid rgba(201,168,76,0.3);
-    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gold-light);
-  }
-  .conf-badge::before {
-    content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
-  }
-  .why-deco {
-    position: absolute; top: -20px; right: -20px; width: 180px; height: 180px;
-    border: 1px solid rgba(201,168,76,0.1); z-index: 1;
-  }
-
-  /* ── DESTINATIONS ── */
-  .destinations { background: var(--off-white); }
-  .destinations-header { margin-bottom: 3rem; }
-  .dest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
-  .dest-card {
-    background: var(--white); overflow: hidden; position: relative;
-    transition: transform 0.3s;
-  }
-  .dest-card:hover { transform: translateY(-4px); z-index: 2; }
-  .dest-img {
-    height: 220px; overflow: hidden; position: relative;
-    background: var(--navy-mid); display: flex; align-items: center; justify-content: center;
-  }
-  .dest-img svg { width: 60px; height: 60px; opacity: 0.15; }
-  .dest-city-icon {
-    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 5rem; font-weight: 300; color: rgba(255,255,255,0.06);
-    letter-spacing: -0.05em;
-  }
-  .dest-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(10,22,40,0.85) 0%, transparent 60%);
-    display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
-  }
-  .dest-name {
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 300; color: var(--white);
-    margin-bottom: 0.2rem;
-  }
-  .dest-country { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-  .dest-body { padding: 1.25rem 1.5rem; }
-  .dest-specs { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-  .dest-specs li {
-    font-size: 0.7rem; color: var(--text-mid); display: flex; align-items: center; gap: 0.5rem;
-  }
-  .dest-specs li::before { content: '+'; color: var(--gold); font-weight: 600; }
-
-  /* ── PROCESS ── */
-  .process { background: var(--white); }
-  .process-steps {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 4rem; position: relative;
-  }
-  .process-steps::before {
-    content: ''; position: absolute; top: 2.2rem; left: 2rem; right: 2rem;
-    height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent);
-    z-index: 0;
-  }
-  .step { padding: 0 2rem; position: relative; z-index: 1; }
-  .step-dot {
-    width: 4rem; height: 4rem; background: var(--navy); border: 2px solid var(--gold);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;
-  }
-  .step-dot span {
-    font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--gold);
-  }
-  .step-title {
-    font-family: var(--serif); font-size: 1.1rem; color: var(--navy); margin-bottom: 0.6rem;
-  }
-  .step-desc { font-size: 0.75rem; line-height: 1.75; color: var(--text-mid); }
-
-  /* ── TESTIMONIALS ── */
-  .testimonials { background: var(--navy); }
-  .testimonials .section-title { color: var(--white); }
-  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; }
-  .testi-card {
-    background: rgba(255,255,255,0.04); padding: 2.5rem;
-    border-top: 1px solid rgba(201,168,76,0.3);
-    position: relative;
-  }
-  .testi-quote {
-    font-family: var(--serif); font-size: 3rem; font-weight: 300;
-    color: rgba(201,168,76,0.25); line-height: 1; margin-bottom: 1rem;
-  }
-  .testi-text {
-    font-family: var(--serif); font-size: 1.05rem; font-weight: 300; font-style: italic;
-    color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 1.5rem;
-  }
-  .testi-author { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-  .testi-origin { font-size: 0.6rem; color: rgba(255,255,255,0.35); margin-top: 0.2rem; }
-
-  /* ── CONTACT ── */
-  .contact { background: var(--off-white); }
-  .contact-inner {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
-  }
-  .contact-form-wrap {
-    background: var(--white); padding: 3rem;
-    border-top: 3px solid var(--gold);
-  }
-  .form-group { margin-bottom: 1.5rem; }
-  .form-group label {
-    display: block; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.5rem;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%; padding: 0.85rem 1rem; border: 1px solid #e0ddd6;
-    font-family: var(--sans); font-size: 0.8rem; color: var(--text-dark);
-    background: transparent; outline: none;
-    transition: border-color 0.3s;
-  }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--gold); }
-  .form-group textarea { resize: vertical; min-height: 120px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .confidential-note {
-    font-size: 0.65rem; color: var(--text-light); margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .confidential-note::before { content: '🔒'; font-size: 0.75rem; }
-  .contact-info { padding-top: 2rem; }
-  .contact-info .section-tag { margin-bottom: 0.5rem; }
-  .contact-info .section-title { margin-bottom: 1rem; }
-  .contact-info p { font-size: 0.82rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 2rem; }
-  .contact-channels { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
-  .channel {
-    display: flex; align-items: center; gap: 1rem;
-    padding: 1rem 1.5rem; border: 1px solid #e8e4db;
-    transition: border-color 0.3s;
-  }
-  .channel:hover { border-color: var(--gold); }
-  .channel-icon {
-    width: 36px; height: 36px; background: var(--navy);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .channel-icon svg { width: 16px; height: 16px; fill: var(--gold); }
-  .channel-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-light); }
-  .channel-value { font-size: 0.8rem; color: var(--navy); font-weight: 500; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy); padding: 4rem; border-top: 1px solid rgba(201,168,76,0.15);
-  }
-  .footer-inner {
-    max-width: 1200px; margin: 0 auto;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .footer-logo { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; color: var(--white); }
-  .footer-logo span { color: var(--gold); }
-  .footer-text { font-size: 0.65rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; }
-  .footer-links { display: flex; gap: 2rem; }
-  .footer-links a { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
-  .footer-links a:hover { color: var(--gold); }
-
-  /* ── MOBILE MENU ── */
-  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0; }
-  .menu-toggle span { display: block; width: 22px; height: 1px; background: var(--white); margin: 5px 0; transition: 0.3s; }
+  /* ── CTA BANNER ── */
+  .cta-banner { background: var(--navy); padding: 5rem 4rem; text-align: center; }
+  .cta-banner h2 { font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; }
+  .cta-banner h2 em { font-style: italic; color: var(--gold-light); }
+  .cta-banner p { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; }
 
   @media (max-width: 1024px) {
-    nav { padding: 1.2rem 2rem; }
-    .nav-links { display: none; }
-    .menu-toggle { display: block; }
-    section { padding: 4rem 2rem; }
     .hero-content { grid-template-columns: 1fr; padding: 7rem 2rem 3rem; }
-    .hero-stats { display: flex; flex-direction: row; flex-wrap: wrap; border-left: none; border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 0 0; margin-top: 2rem; }
-    .services-grid { grid-template-columns: 1fr 1fr; }
-    .why-grid { grid-template-columns: 1fr; }
-    .why-visual { display: none; }
-    .dest-grid { grid-template-columns: 1fr 1fr; }
-    .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .process-steps::before { display: none; }
-    .testi-grid { grid-template-columns: 1fr; }
-    .contact-inner { grid-template-columns: 1fr; }
-    .services-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; border-left: none; border-top: 1px solid rgba(201,168,76,0.2); padding: 2rem 0 0; margin-top: 2rem; }
+    .overview-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 640px) {
-    .services-grid { grid-template-columns: 1fr; }
-    .dest-grid { grid-template-columns: 1fr; }
-    .process-steps { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
-    .form-row { grid-template-columns: 1fr; }
-    .hero-actions { flex-direction: column; align-items: flex-start; }
-  }
-
-  /* ── ANIMATIONS ── */
-  .fade-up {
-    opacity: 0; transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
-  }
-  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-  .delay-1 { animation-delay: 0.15s; }
-  .delay-2 { animation-delay: 0.3s; }
-  .delay-3 { animation-delay: 0.45s; }
-  .delay-4 { animation-delay: 0.6s; }
 </style>
 </head>
 <body>
 
-<!-- ── NAVIGATION ── -->
 <nav>
-  <div class="nav-logo">Noble<span>Care</span></div>
+  <a href="index.html" class="nav-logo">Noble<span>Care</span></a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#destinations">Destinations</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Private Consultation</a>
-  <button class="menu-toggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="contact.html" class="nav-cta">Private Consultation</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-accent"></div>
-  <div class="hero-content container">
+  <div class="hero-content">
     <div class="hero-text">
-      <p class="eyebrow fade-up">International Medical Concierge</p>
-      <h1 class="fade-up delay-1">Access the World's<br><em>Finest Medical</em><br>Expertise</h1>
-      <p class="fade-up delay-2">
-        We connect distinguished international patients with the most advanced medical institutions in Europe — handling every detail from specialist appointments to private travel arrangements.
-      </p>
-      <div class="hero-actions fade-up delay-3">
-        <a href="#contact" class="btn-primary">Request a Private Consultation</a>
-        <a href="#process" class="btn-ghost">How it works</a>
+      <p class="eyebrow">International Medical Concierge</p>
+      <h1>Access the World's<br><em>Finest Medical</em><br>Expertise</h1>
+      <p>We connect distinguished international patients with the most advanced medical institutions in Europe — handling every detail from specialist appointments to private travel arrangements.</p>
+      <div class="hero-actions">
+        <a href="contact.html" class="btn-primary">Request a Private Consultation</a>
+        <a href="process.html" class="btn-ghost">How it works</a>
       </div>
-      <div class="hero-badges fade-up delay-4">
+      <div class="hero-badges">
         <span class="badge">Absolute Confidentiality</span>
         <span class="badge">24/7 Dedicated Support</span>
         <span class="badge">Multilingual Assistance</span>
       </div>
     </div>
-    <div class="hero-stats fade-up delay-2">
-      <div class="stat">
-        <div class="stat-num">48h</div>
-        <div class="stat-label">Average response time</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">15+</div>
-        <div class="stat-label">Partner institutions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4</div>
-        <div class="stat-label">Medical destinations</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Confidential service</div>
-      </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Average response time</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Partner institutions</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Medical destinations</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Confidential service</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── MARQUEE ── -->
+<!-- MARQUEE -->
 <div class="marquee-bar">
   <div class="marquee-track">
-    <span>Medical Coordination</span><span>◆</span>
-    <span>Private Travel</span><span>◆</span>
-    <span>VIP Hospitality</span><span>◆</span>
-    <span>Specialist Access</span><span>◆</span>
-    <span>Personal Assistance</span><span>◆</span>
-    <span>Secure Confidentiality</span><span>◆</span>
-    <span>24h Concierge</span><span>◆</span>
-    <span>Medical Coordination</span><span>◆</span>
-    <span>Private Travel</span><span>◆</span>
-    <span>VIP Hospitality</span><span>◆</span>
-    <span>Specialist Access</span><span>◆</span>
-    <span>Personal Assistance</span><span>◆</span>
-    <span>Secure Confidentiality</span><span>◆</span>
-    <span>24h Concierge</span><span>◆</span>
+    <span>Medical Coordination</span><span>◆</span><span>Private Travel</span><span>◆</span><span>VIP Hospitality</span><span>◆</span><span>Specialist Access</span><span>◆</span><span>Personal Assistance</span><span>◆</span><span>Secure Confidentiality</span><span>◆</span><span>24h Concierge</span><span>◆</span>
+    <span>Medical Coordination</span><span>◆</span><span>Private Travel</span><span>◆</span><span>VIP Hospitality</span><span>◆</span><span>Specialist Access</span><span>◆</span><span>Personal Assistance</span><span>◆</span><span>Secure Confidentiality</span><span>◆</span><span>24h Concierge</span><span>◆</span>
   </div>
 </div>
 
-<!-- ── SERVICES ── -->
-<section class="services" id="services">
+<!-- OVERVIEW -->
+<section class="overview">
   <div class="container">
-    <div class="services-header">
-      <div>
-        <p class="section-tag">Our Services</p>
-        <h2 class="section-title">A Complete Suite of<br><em>Premium Medical Services</em></h2>
-      </div>
-      <p class="section-sub">Every aspect of your medical journey is orchestrated with precision and discretion.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <div class="service-name">Medical Coordination</div>
-        <p class="service-desc">Expert analysis of your medical file and direct access to world-leading specialists across every discipline.</p>
-        <ul class="service-list">
-          <li>Medical file evaluation</li>
-          <li>Priority specialist access</li>
-          <li>Oncology &amp; cardiology</li>
-          <li>Second opinion services</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <div class="service-name">Travel &amp; Logistics</div>
-        <p class="service-desc">Seamless international travel arrangements including private aviation, visas, and premium accommodation.</p>
-        <ul class="service-list">
-          <li>Medical visa procurement</li>
-          <li>Private jet coordination</li>
-          <li>5-star hotel suites</li>
-          <li>Private airport transfers</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <div class="service-name">Personal Assistance</div>
-        <p class="service-desc">A dedicated personal assistant accompanying you throughout your entire medical journey.</p>
-        <ul class="service-list">
-          <li>Multilingual interpreters</li>
-          <li>24h personal assistant</li>
-          <li>Administrative support</li>
-          <li>Hospital accompaniment</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-name">VIP Services</div>
-        <p class="service-desc">The highest standard of private care and security for clients and their families.</p>
-        <ul class="service-list">
-          <li>Private security detail</li>
-          <li>Premium hospital suites</li>
-          <li>Private chef if required</li>
-          <li>Post-operative care</li>
-        </ul>
-      </div>
+    <p class="section-tag">What We Offer</p>
+    <h2 class="section-title">Everything You Need,<br><em>Perfectly Orchestrated</em></h2>
+    <div class="overview-grid">
+      <a href="services.html" class="ov-card fade-up">
+        <div class="ov-num">01</div>
+        <div class="ov-title">Medical Coordination</div>
+        <p class="ov-text">Expert analysis of your medical file and direct access to world-leading specialists across every discipline.</p>
+        <span class="ov-link">Discover our services →</span>
+      </a>
+      <a href="destinations.html" class="ov-card fade-up">
+        <div class="ov-num">02</div>
+        <div class="ov-title">Premier Destinations</div>
+        <p class="ov-text">Paris, Geneva, London, Berlin — the four capitals of medical excellence in Europe, accessible to you.</p>
+        <span class="ov-link">View destinations →</span>
+      </a>
+      <a href="process.html" class="ov-card fade-up">
+        <div class="ov-num">03</div>
+        <div class="ov-title">Seamless Process</div>
+        <p class="ov-text">From your first contact to full recovery, a dedicated concierge manages every step of your journey.</p>
+        <span class="ov-link">How it works →</span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ── WHY US ── -->
-<section class="why" id="about">
-  <div class="container">
-    <div class="why-grid">
-      <div>
-        <p class="section-tag">Why Choose NobleCare</p>
-        <h2 class="section-title" style="color: #fff;">Trusted by the World's<br><em>Most Discerning Families</em></h2>
-        <p class="section-sub" style="max-width: 100%; margin-bottom: 2rem;">Our mission is to ensure that no barrier — geographic, administrative, or logistical — stands between you and the medical care you deserve.</p>
-        <div class="why-features">
-          <div class="why-feature">
-            <span class="feature-num">I</span>
-            <div class="feature-content">
-              <div class="feature-title">Access to leading European institutions</div>
-              <p class="feature-text">Direct partnerships with top-ranked hospitals in Paris, Geneva, London, and Berlin.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <span class="feature-num">II</span>
-            <div class="feature-content">
-              <div class="feature-title">Absolute discretion &amp; confidentiality</div>
-              <p class="feature-text">All communications and medical records handled under strict professional confidentiality.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <span class="feature-num">III</span>
-            <div class="feature-content">
-              <div class="feature-title">End-to-end case management</div>
-              <p class="feature-text">From your first contact to full recovery, we manage every detail without exception.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <span class="feature-num">IV</span>
-            <div class="feature-content">
-              <div class="feature-title">Multilingual support in 3 languages</div>
-              <p class="feature-text">Our team assists fluently in English, French, and Arabic.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="why-visual">
-        <div class="why-deco"></div>
-        <div class="why-card-main">
-          <div class="wc-label">Our Commitment</div>
-          <div class="wc-title">When health cannot wait, every detail matters.</div>
-          <p style="font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.8; margin-bottom: 1.5rem;">
-            NobleCare exists because exceptional medical care should be accessible to those who need it most — wherever they are in the world. We bridge the distance between your family and the best specialists on the planet.
-          </p>
-          <div class="conf-badge">Fully confidential service</div>
-        </div>
-      </div>
-    </div>
+<!-- CTA -->
+<div class="cta-banner">
+  <div class="container" style="max-width:700px;">
+    <h2>Your health cannot wait.<br><em>Neither can we.</em></h2>
+    <p>Our team responds within 48 hours to every inquiry, with absolute discretion and professional care.</p>
+    <a href="contact.html" class="btn-primary">Request a Private Consultation</a>
   </div>
-</section>
+</div>
 
-<!-- ── DESTINATIONS ── -->
-<section class="destinations" id="destinations">
-  <div class="container">
-    <div class="destinations-header">
-      <p class="section-tag">Medical Destinations</p>
-      <h2 class="section-title">Europe's Premier<br><em>Medical Cities</em></h2>
-    </div>
-    <div class="dest-grid">
-      <div class="dest-card">
-        <div class="dest-img" style="background: #0d1e35;">
-          <div class="dest-city-icon">P</div>
-          <div class="dest-overlay">
-            <div class="dest-name">Paris</div>
-            <div class="dest-country">France</div>
-          </div>
-        </div>
-        <div class="dest-body">
-          <ul class="dest-specs">
-            <li>Oncology &amp; Cancer Centers</li>
-            <li>Neurology &amp; Brain Surgery</li>
-            <li>Cardiology Excellence</li>
-          </ul>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-img" style="background: #102030;">
-          <div class="dest-city-icon">G</div>
-          <div class="dest-overlay">
-            <div class="dest-name">Geneva</div>
-            <div class="dest-country">Switzerland</div>
-          </div>
-        </div>
-        <div class="dest-body">
-          <ul class="dest-specs">
-            <li>Rare Disease Specialists</li>
-            <li>Preventive Medicine</li>
-            <li>Precision Oncology</li>
-          </ul>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-img" style="background: #0a1a2e;">
-          <div class="dest-city-icon">L</div>
-          <div class="dest-overlay">
-            <div class="dest-name">London</div>
-            <div class="dest-country">United Kingdom</div>
-          </div>
-        </div>
-        <div class="dest-body">
-          <ul class="dest-specs">
-            <li>Complex Cardiac Surgery</li>
-            <li>Transplant Medicine</li>
-            <li>Leading Research Centers</li>
-          </ul>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-img" style="background: #0e2238;">
-          <div class="dest-city-icon">B</div>
-          <div class="dest-overlay">
-            <div class="dest-name">Berlin</div>
-            <div class="dest-country">Germany</div>
-          </div>
-        </div>
-        <div class="dest-body">
-          <ul class="dest-specs">
-            <li>Orthopedics &amp; Spine</li>
-            <li>Advanced Diagnostics</li>
-            <li>University Medical Centers</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESS ── -->
-<section class="process" id="process">
-  <div class="container">
-    <p class="section-tag">How It Works</p>
-    <h2 class="section-title">Your Journey in<br><em>Four Steps</em></h2>
-    <div class="process-steps">
-      <div class="step">
-        <div class="step-dot"><span>01</span></div>
-        <div class="step-title">Submit Your File</div>
-        <p class="step-desc">Share your medical records, analyses, and imaging through our secure encrypted portal. All information is handled in strict confidence.</p>
-      </div>
-      <div class="step">
-        <div class="step-dot"><span>02</span></div>
-        <div class="step-title">Medical Evaluation</div>
-        <p class="step-desc">Our network of partner specialists reviews your case to identify the optimal hospital, treatment pathway, and estimated timelines.</p>
-      </div>
-      <div class="step">
-        <div class="step-dot"><span>03</span></div>
-        <div class="step-title">Your Treatment Plan</div>
-        <p class="step-desc">We present a comprehensive proposal including institution, specialist, treatment, schedule, logistics, and complete cost estimate.</p>
-      </div>
-      <div class="step">
-        <div class="step-dot"><span>04</span></div>
-        <div class="step-title">Travel &amp; Care</div>
-        <p class="step-desc">Upon your approval, we orchestrate the entire journey — from departure to homecoming — with a dedicated concierge at your side.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ── -->
-<section class="testimonials">
-  <div class="container">
-    <p class="section-tag">Client Testimonials</p>
-    <h2 class="section-title" style="color: #fff;">Words from Those<br><em>We Have Served</em></h2>
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Exceptional support throughout my treatment in Paris. The team managed everything, allowing me to focus entirely on my recovery. A truly extraordinary service.</p>
-        <div class="testi-author">Anonymous Patient</div>
-        <div class="testi-origin">West Africa</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">Discreet, professional, and extremely efficient. We were in Geneva within 72 hours of our first contact. The level of care and attention was unlike anything we had experienced.</p>
-        <div class="testi-author">Family Office Client</div>
-        <div class="testi-origin">Middle East</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-quote">"</div>
-        <p class="testi-text">NobleCare transformed what could have been a deeply stressful experience into one that felt managed, dignified, and reassuring at every stage.</p>
-        <div class="testi-author">Senior Executive</div>
-        <div class="testi-origin">Central Africa</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CONTACT ── -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-info">
-        <p class="section-tag">Contact Us</p>
-        <h2 class="section-title">Request a<br><em>Private Consultation</em></h2>
-        <p>All inquiries are handled with absolute discretion. Our team will respond within 48 hours to discuss your situation and how we can best assist you.</p>
-        <div class="contact-channels">
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">Secure Email</div>
-              <div class="channel-value">contact@noblecare.com</div>
-            </div>
-          </div>
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.997 2C6.477 2 2 6.477 2 11.997c0 1.757.456 3.405 1.253 4.842L2 22l5.361-1.218A9.96 9.96 0 0011.997 22c5.523 0 10-4.477 10-10.003S17.52 2 11.997 2zm0 18.186a8.17 8.17 0 01-4.135-1.125l-.295-.174-3.182.723.749-3.092-.193-.314A8.183 8.183 0 013.813 12c0-4.512 3.672-8.186 8.184-8.186 4.51 0 8.184 3.674 8.184 8.186 0 4.513-3.674 8.186-8.184 8.186z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">WhatsApp</div>
-              <div class="channel-value">+33 (0)1 XX XX XX XX</div>
-            </div>
-          </div>
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">Private Line</div>
-              <div class="channel-value">+33 (0)1 XX XX XX XX</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form-wrap">
-        <p class="confidential-note">All information is encrypted and strictly confidential</p>
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" placeholder="Your first name">
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" placeholder="Your last name">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Country of Residence</label>
-          <select>
-            <option value="">Select your country</option>
-            <option>Nigeria</option>
-            <option>Côte d'Ivoire</option>
-            <option>Sénégal</option>
-            <option>Mali</option>
-            <option>Cameroun</option>
-            <option>Saudi Arabia</option>
-            <option>UAE</option>
-            <option>Kazakhstan</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Medical Specialty Required</label>
-          <select>
-            <option value="">Select a specialty</option>
-            <option>Oncology</option>
-            <option>Cardiology &amp; Cardiac Surgery</option>
-            <option>Neurology &amp; Neurosurgery</option>
-            <option>Orthopedics</option>
-            <option>Rare Disease</option>
-            <option>General Medicine</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Brief Description (Optional)</label>
-          <textarea placeholder="Briefly describe your medical situation and how we can assist you..."></textarea>
-        </div>
-        <button class="btn-primary" style="width: 100%; text-align: center; border: none; font-family: var(--sans);">Request a Private Consultation</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
-    <div>
-      <div class="footer-logo">Noble<span>Care</span></div>
-      <div class="footer-text" style="margin-top: 0.5rem;">Elite International Medical Concierge</div>
-    </div>
+    <a href="index.html" class="footer-logo">Noble<span>Care</span></a>
     <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#destinations">Destinations</a>
-      <a href="#process">Process</a>
-      <a href="#contact">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
     <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
   </div>
 </footer>
 
 <script>
-  const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
-    nav.style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
+    document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
   });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.service-card, .dest-card, .testi-card, .step, .why-feature').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
+  const observer = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
