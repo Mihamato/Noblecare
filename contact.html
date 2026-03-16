@@ -11,87 +11,45 @@
 <style>
   .contact-section { background: var(--off-white); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; margin-top: 3rem; }
-  .contact-info {}
   .contact-info p { font-size: 0.82rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 2rem; }
   .channels { display: flex; flex-direction: column; gap: 1.5px; margin-top: 2.5rem; }
-  .channel {
-    background: var(--white); display: flex; align-items: center; gap: 1.5rem;
-    padding: 1.25rem 1.5rem; border-left: 3px solid transparent; transition: border-color 0.3s;
-  }
+  .channel { background: var(--white); display: flex; align-items: center; gap: 1.5rem; padding: 1.25rem 1.5rem; border-left: 3px solid transparent; transition: border-color 0.3s; text-decoration: none; color: inherit; }
   .channel:hover { border-left-color: var(--gold); }
-  .channel-icon {
-    width: 40px; height: 40px; background: var(--navy); flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
+  .channel-icon { width: 40px; height: 40px; background: var(--navy); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .channel-icon svg { width: 18px; height: 18px; fill: var(--gold); }
   .channel-label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); }
   .channel-value { font-size: 0.82rem; color: var(--navy); font-weight: 500; margin-top: 0.1rem; }
-
-  /* FORM */
-  .contact-form-wrap {
-    background: var(--white); padding: 3rem;
-    border-top: 3px solid var(--gold);
-  }
+  .contact-form-wrap { background: var(--white); padding: 3rem; border-top: 3px solid var(--gold); }
   .form-title { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 0.3rem; }
   .form-sub { font-size: 0.75rem; color: var(--text-mid); margin-bottom: 2rem; }
   .form-group { margin-bottom: 1.4rem; }
   .form-group label { display: block; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 0.5rem; }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%; padding: 0.85rem 1rem; border: 1px solid #e0ddd6;
-    font-family: var(--sans); font-size: 0.8rem; color: var(--text-dark);
-    background: transparent; outline: none; transition: border-color 0.3s; appearance: none;
-  }
+  .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.85rem 1rem; border: 1px solid #e0ddd6; font-family: var(--sans); font-size: 0.8rem; color: var(--text-dark); background: transparent; outline: none; transition: border-color 0.3s; appearance: none; }
   .form-group select { background: var(--white); cursor: pointer; }
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
   .form-group textarea { resize: vertical; min-height: 110px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .confidential-note {
-    font-size: 0.65rem; color: var(--text-light); margin-bottom: 1.5rem;
-    display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem;
-    background: var(--off-white); border-left: 2px solid var(--gold);
-  }
-  .submit-btn {
-    width: 100%; padding: 1rem; background: var(--navy); color: var(--white);
-    border: none; font-family: var(--sans); font-size: 0.65rem; font-weight: 600;
-    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
-    transition: background 0.3s; position: relative;
-  }
+  .confidential-note { font-size: 0.65rem; color: var(--text-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: var(--off-white); border-left: 2px solid var(--gold); }
+  .submit-btn { width: 100%; padding: 1rem; background: var(--navy); color: var(--white); border: none; font-family: var(--sans); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
   .submit-btn:hover { background: var(--navy-light); }
-  .submit-btn::after { content: ' →'; }
-
-  /* SUCCESS MSG */
-  .success-msg {
-    display: none; background: #f0f8f0; border-left: 3px solid #4a9a5a;
-    padding: 1rem 1.25rem; font-size: 0.78rem; color: #2a6a3a;
-    margin-top: 1rem;
-  }
-
-  @media (max-width: 900px) {
-    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-    .form-row { grid-template-columns: 1fr; }
-  }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; } .form-row { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="nav-logo">Noble<span>Care</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="destinations.html">Destinations</a></li>
     <li><a href="process.html">Process</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="blog.html">Blog</a></li>
     <li><a href="contact.html" class="active">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Private Consultation</a>
   <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
-
 <div class="page-header">
   <div class="page-header-bg"></div>
   <div class="page-header-grid"></div>
@@ -100,7 +58,6 @@
     <h1>Request a<br><em>Private Consultation</em></h1>
   </div>
 </div>
-
 <section class="contact-section">
   <div class="container">
     <div class="contact-grid">
@@ -109,147 +66,83 @@
         <h2 class="section-title">We Are Here<br><em>For You</em></h2>
         <p>All inquiries are handled with absolute discretion. Our team will respond within 48 hours to discuss your situation and how we can best assist you and your family.</p>
         <p>Whether you have an urgent medical need or are simply exploring options, there is no obligation. Your first consultation is entirely confidential and free of charge.</p>
-
         <div class="channels">
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">Secure Email</div>
-              <div class="channel-value">contact@noblecare.com</div>
-            </div>
-          </div>
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.997 2C6.477 2 2 6.477 2 11.997c0 1.757.456 3.405 1.253 4.842L2 22l5.361-1.218A9.96 9.96 0 0011.997 22c5.523 0 10-4.477 10-10.003S17.52 2 11.997 2zm0 18.186a8.17 8.17 0 01-4.135-1.125l-.295-.174-3.182.723.749-3.092-.193-.314A8.183 8.183 0 013.813 12c0-4.512 3.672-8.186 8.184-8.186 4.51 0 8.184 3.674 8.184 8.186 0 4.513-3.674 8.186-8.184 8.186z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">WhatsApp</div>
-              <div class="channel-value">+33 (0)1 XX XX XX XX</div>
-            </div>
-          </div>
-          <div class="channel">
-            <div class="channel-icon">
-              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            </div>
-            <div>
-              <div class="channel-label">Private Line</div>
-              <div class="channel-value">+33 (0)1 XX XX XX XX</div>
-            </div>
-          </div>
+          <a href="mailto:noblecare.contact@gmail.com" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+            <div><div class="channel-label">Secure Email</div><div class="channel-value">noblecare.contact@gmail.com</div></div>
+          </a>
+          <a href="https://wa.me/33652048662" target="_blank" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.997 2C6.477 2 2 6.477 2 11.997c0 1.757.456 3.405 1.253 4.842L2 22l5.361-1.218A9.96 9.96 0 0011.997 22c5.523 0 10-4.477 10-10.003S17.52 2 11.997 2zm0 18.186a8.17 8.17 0 01-4.135-1.125l-.295-.174-3.182.723.749-3.092-.193-.314A8.183 8.183 0 013.813 12c0-4.512 3.672-8.186 8.184-8.186 4.51 0 8.184 3.674 8.184 8.186 0 4.513-3.674 8.186-8.184 8.186z"/></svg></div>
+            <div><div class="channel-label">WhatsApp</div><div class="channel-value">+33 6 52 04 86 62</div></div>
+          </a>
+          <a href="tel:+33652048662" class="channel">
+            <div class="channel-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+            <div><div class="channel-label">Private Line</div><div class="channel-value">+33 6 52 04 86 62</div></div>
+          </a>
         </div>
       </div>
-
       <div class="contact-form-wrap fade-up">
         <div class="form-title">Private Consultation Request</div>
-        <div class="form-sub">All information is encrypted and treated in strict confidence.</div>
-        <div class="confidential-note">🔒 Your data is securely encrypted and never shared with third parties.</div>
-        <div class="form-row">
+        <div class="form-sub">All information is treated in strict confidence.</div>
+        <div class="confidential-note">🔒 Your data is never shared with third parties.</div>
+        <form action="https://formspree.io/f/noblecare.contact@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New NobleCare Consultation Request">
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" name="first_name" placeholder="Your first name" required></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="last_name" placeholder="Your last name" required></div>
+          </div>
+          <div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+          <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+XXX XX XX XX XX"></div>
           <div class="form-group">
-            <label>First Name *</label>
-            <input type="text" id="fname" placeholder="Your first name">
+            <label>Country of Residence *</label>
+            <select name="country" required>
+              <option value="">Select your country</option>
+              <option>Nigeria</option><option>Côte d'Ivoire</option><option>Sénégal</option>
+              <option>Mali</option><option>Cameroun</option><option>Gabon</option>
+              <option>Congo</option><option>Saudi Arabia</option><option>United Arab Emirates</option>
+              <option>Qatar</option><option>Kuwait</option><option>Kazakhstan</option><option>Other</option>
+            </select>
           </div>
           <div class="form-group">
-            <label>Last Name *</label>
-            <input type="text" id="lname" placeholder="Your last name">
+            <label>Medical Specialty Required *</label>
+            <select name="specialty" required>
+              <option value="">Select a specialty</option>
+              <option>Oncology / Cancer Treatment</option><option>Cardiology &amp; Cardiac Surgery</option>
+              <option>Neurology &amp; Neurosurgery</option><option>Orthopaedics &amp; Spine Surgery</option>
+              <option>Rare Disease</option><option>Haematology</option><option>Transplant Medicine</option>
+              <option>General Surgery</option><option>Preventive Medicine</option><option>Other</option>
+            </select>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address *</label>
-          <input type="email" id="email" placeholder="your@email.com">
-        </div>
-        <div class="form-group">
-          <label>Phone / WhatsApp</label>
-          <input type="tel" placeholder="+XXX XX XX XX XX">
-        </div>
-        <div class="form-group">
-          <label>Country of Residence *</label>
-          <select>
-            <option value="">Select your country</option>
-            <option>Nigeria</option>
-            <option>Côte d'Ivoire</option>
-            <option>Sénégal</option>
-            <option>Mali</option>
-            <option>Cameroun</option>
-            <option>Gabon</option>
-            <option>Congo</option>
-            <option>Saudi Arabia</option>
-            <option>United Arab Emirates</option>
-            <option>Qatar</option>
-            <option>Kuwait</option>
-            <option>Kazakhstan</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Medical Specialty Required *</label>
-          <select>
-            <option value="">Select a specialty</option>
-            <option>Oncology / Cancer Treatment</option>
-            <option>Cardiology &amp; Cardiac Surgery</option>
-            <option>Neurology &amp; Neurosurgery</option>
-            <option>Orthopaedics &amp; Spine Surgery</option>
-            <option>Rare Disease</option>
-            <option>Haematology</option>
-            <option>Transplant Medicine</option>
-            <option>General Surgery</option>
-            <option>Preventive Medicine</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Preferred Destination</label>
-          <select>
-            <option value="">No preference — recommend the best</option>
-            <option>Paris, France</option>
-            <option>Geneva, Switzerland</option>
-            <option>London, United Kingdom</option>
-            <option>Berlin, Germany</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Brief Description of Your Situation</label>
-          <textarea placeholder="Briefly describe your medical situation and any urgency. This helps us assign the right specialist to your case..."></textarea>
-        </div>
-        <button class="submit-btn" onclick="handleSubmit()">Submit Consultation Request</button>
-        <div class="success-msg" id="successMsg">
-          ✓ Your request has been received. A member of our team will contact you within 48 hours.
-        </div>
+          <div class="form-group">
+            <label>Preferred Destination</label>
+            <select name="destination">
+              <option value="">No preference — recommend the best</option>
+              <option>Paris, France</option><option>Geneva, Switzerland</option>
+              <option>London, United Kingdom</option><option>Berlin, Germany</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Brief Description</label><textarea name="message" placeholder="Briefly describe your medical situation and any urgency..."></textarea></div>
+          <button type="submit" class="submit-btn">Submit Consultation Request →</button>
+        </form>
       </div>
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-inner">
-    <a href="index.html" class="footer-logo">Noble<span>Care</span></a>
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
     <div class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="process.html">Process</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="services.html">Services</a><a href="destinations.html">Destinations</a>
+      <a href="process.html">Process</a><a href="about.html">About</a>
+      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
     </div>
     <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
   </div>
 </footer>
-
 <script>
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
-  });
+  window.addEventListener('scroll', () => { document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem'; });
   const observer = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  function handleSubmit() {
-    const fname = document.getElementById('fname').value;
-    const email = document.getElementById('email').value;
-    if (!fname || !email) { alert('Please fill in your name and email address.'); return; }
-    document.getElementById('successMsg').style.display = 'block';
-    document.querySelector('.submit-btn').disabled = true;
-    document.querySelector('.submit-btn').style.opacity = '0.5';
-  }
 </script>
 </body>
 </html>

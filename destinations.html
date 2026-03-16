@@ -21,7 +21,7 @@
   .dest-card:hover { transform: translateX(4px); }
   .dest-card:nth-child(even):hover { transform: translateX(-4px); }
   .dest-visual {
-    background: var(--navy-mid); position: relative; min-height: 280px;
+    background: var(--navy-mid); position: relative; min-height: 280px; background-size: cover; background-position: center;
     display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
   .dest-letter {
@@ -59,7 +59,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Noble<span>Care</span></a>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="services.html">Services</a></li>
@@ -98,7 +98,7 @@
     <div class="dest-cards">
       <!-- PARIS -->
       <div class="dest-card fade-up">
-        <div class="dest-visual" style="background: #0d1e35;">
+        <div class="dest-visual" style="background: #0d1e35; background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80'); background-size: cover; background-blend-mode: overlay;">
           <div class="dest-letter">P</div>
           <div class="dest-overlay">
             <div class="dest-city">Paris</div>
@@ -124,7 +124,7 @@
 
       <!-- GENEVA -->
       <div class="dest-card fade-up">
-        <div class="dest-visual" style="background: #102030;">
+        <div class="dest-visual" style="background: #102030; background-image: url('https://images.unsplash.com/photo-1573108724029-4c46571d6490?w=600&q=80'); background-size: cover; background-blend-mode: overlay;">
           <div class="dest-letter">G</div>
           <div class="dest-overlay">
             <div class="dest-city">Geneva</div>
@@ -149,7 +149,7 @@
 
       <!-- LONDON -->
       <div class="dest-card fade-up">
-        <div class="dest-visual" style="background: #0a1a2e;">
+        <div class="dest-visual" style="background: #0a1a2e; background-image: url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=80'); background-size: cover; background-blend-mode: overlay;">
           <div class="dest-letter">L</div>
           <div class="dest-overlay">
             <div class="dest-city">London</div>
@@ -174,7 +174,7 @@
 
       <!-- BERLIN -->
       <div class="dest-card fade-up">
-        <div class="dest-visual" style="background: #0e2238;">
+        <div class="dest-visual" style="background: #0e2238; background-image: url('https://images.unsplash.com/photo-1560969184-10fe8719e047?w=600&q=80'); background-size: cover; background-blend-mode: overlay;">
           <div class="dest-letter">B</div>
           <div class="dest-overlay">
             <div class="dest-city">Berlin</div>
@@ -211,7 +211,7 @@
 
 <footer>
   <div class="footer-inner">
-    <a href="index.html" class="footer-logo">Noble<span>Care</span></a>
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
     <div class="footer-links">
       <a href="services.html">Services</a>
       <a href="destinations.html">Destinations</a>
