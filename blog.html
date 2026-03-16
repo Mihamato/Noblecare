@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Insights — NobleCare Blog</title>
+<meta name="description" content="Expert guides and insights on international medical travel, European hospitals, and accessing world-class healthcare from Africa and the Middle East.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .blog-section { background: var(--off-white); }
+
+  .filter-bar {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem;
+  }
+  .filter-btn {
+    font-size: 0.62rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.5rem 1.2rem; border: 1px solid rgba(10,22,40,0.2); color: var(--text-mid);
+    background: transparent; cursor: pointer; transition: all 0.25s;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; }
+
+  .blog-card {
+    background: var(--white); display: flex; flex-direction: column;
+    text-decoration: none; color: inherit; transition: transform 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .blog-card:hover { transform: translateY(-4px); }
+  .blog-card:hover .card-arrow { transform: translateX(4px); }
+
+  .card-visual {
+    height: 200px; background: var(--navy-mid); position: relative;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .card-visual-letter {
+    font-family: var(--serif); font-size: 9rem; font-weight: 300;
+    color: rgba(255,255,255,0.04); line-height: 1;
+    position: absolute;
+  }
+  .card-visual-overlay {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem;
+  }
+  .card-category {
+    display: inline-block; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; padding: 0.3rem 0.7rem;
+    background: var(--gold); color: var(--navy);
+  }
+  .card-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+  .card-meta { font-size: 0.6rem; color: var(--text-light); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .card-title {
+    font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--navy);
+    line-height: 1.35; margin-bottom: 0.75rem; flex: 1;
+  }
+  .card-excerpt { font-size: 0.72rem; line-height: 1.75; color: var(--text-mid); margin-bottom: 1.25rem; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.06); }
+  .card-read { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+  .card-arrow { font-size: 1rem; color: var(--gold); transition: transform 0.3s; }
+  .card-time { font-size: 0.6rem; color: var(--text-light); }
+
+  /* FEATURED */
+  .featured-card {
+    grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--navy); text-decoration: none; color: inherit;
+    transition: opacity 0.3s; margin-bottom: 1.5px;
+  }
+  .featured-card:hover { opacity: 0.92; }
+  .featured-visual {
+    background: var(--navy-light); position: relative; min-height: 320px;
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .featured-letter {
+    font-family: var(--serif); font-size: 18rem; font-weight: 300;
+    color: rgba(255,255,255,0.03); line-height: 1; position: absolute;
+  }
+  .featured-badge {
+    position: absolute; top: 1.5rem; left: 1.5rem;
+    font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.35rem 0.85rem; background: var(--gold); color: var(--navy);
+  }
+  .featured-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .featured-cat { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .featured-title { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white); line-height: 1.3; margin-bottom: 1rem; }
+  .featured-title em { font-style: italic; color: var(--gold-light); }
+  .featured-excerpt { font-size: 0.78rem; line-height: 1.85; color: rgba(255,255,255,0.5); margin-bottom: 1.75rem; }
+  .featured-meta { font-size: 0.6rem; color: rgba(255,255,255,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* NEWSLETTER */
+  .newsletter { background: var(--navy); padding: 4rem; text-align: center; }
+  .newsletter h2 { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white); margin-bottom: 0.5rem; }
+  .newsletter h2 em { font-style: italic; color: var(--gold-light); }
+  .newsletter p { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-bottom: 2rem; }
+  .newsletter-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+  .newsletter-form input {
+    flex: 1; padding: 0.9rem 1.25rem; border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(255,255,255,0.05); color: var(--white);
+    font-family: var(--sans); font-size: 0.78rem; outline: none;
+  }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.3); }
+  .newsletter-form button {
+    padding: 0.9rem 1.5rem; background: var(--gold); color: var(--navy);
+    border: none; font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; white-space: nowrap;
+    transition: background 0.3s;
+  }
+  .newsletter-form button:hover { background: var(--gold-light); }
+
+  @media (max-width: 1024px) { .blog-grid { grid-template-columns: 1fr 1fr; } .featured-card { grid-column: span 2; } }
+  @media (max-width: 700px) {
+    .blog-grid { grid-template-columns: 1fr; }
+    .featured-card { grid-column: span 1; grid-template-columns: 1fr; }
+    .featured-visual { min-height: 180px; }
+    .newsletter-form { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Noble<span>Care</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="destinations.html">Destinations</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Private Consultation</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="page-header-content container">
+    <p class="eyebrow">Medical Insights</p>
+    <h1>Expert Guides for<br><em>International Patients</em></h1>
+  </div>
+</div>
+
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Cancer Treatment Europe</span><span>◆</span><span>Medical Visa Guide</span><span>◆</span><span>Best Hospitals Paris</span><span>◆</span><span>International Patient Tips</span><span>◆</span><span>Medical Travel Africa</span><span>◆</span><span>Geneva vs London</span><span>◆</span>
+    <span>Cancer Treatment Europe</span><span>◆</span><span>Medical Visa Guide</span><span>◆</span><span>Best Hospitals Paris</span><span>◆</span><span>International Patient Tips</span><span>◆</span><span>Medical Travel Africa</span><span>◆</span><span>Geneva vs London</span><span>◆</span>
+  </div>
+</div>
+
+<section class="blog-section">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active">All Articles</button>
+      <button class="filter-btn">Oncology</button>
+      <button class="filter-btn">Medical Visa</button>
+      <button class="filter-btn">Destinations</button>
+      <button class="filter-btn">Patient Guides</button>
+      <button class="filter-btn">Cardiology</button>
+    </div>
+
+    <div class="blog-grid">
+
+      <!-- FEATURED -->
+      <a href="article-cancer-europe.html" class="featured-card">
+        <div class="featured-visual">
+          <div class="featured-letter">C</div>
+          <span class="featured-badge">Featured Guide</span>
+        </div>
+        <div class="featured-body">
+          <div class="featured-cat">Oncology — Patient Guide</div>
+          <div class="featured-title">Which European Hospital<br>for <em>Cancer Treatment</em> in 2025?</div>
+          <p class="featured-excerpt">A comprehensive comparison of Europe's leading oncology centres — Institut Gustave Roussy, The Royal Marsden, and the University Hospital Zurich — to help international patients make the most informed decision of their lives.</p>
+          <div class="featured-meta">8 min read &nbsp;·&nbsp; Paris · London · Geneva</div>
+        </div>
+      </a>
+
+      <!-- CARD 1 -->
+      <a href="article-medical-visa-france.html" class="blog-card fade-up">
+        <div class="card-visual" style="background:#0d1e35;">
+          <div class="card-visual-letter">V</div>
+          <div class="card-visual-overlay">
+            <span class="card-category">Medical Visa</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">6 min read &nbsp;·&nbsp; France</div>
+          <div class="card-title">Medical Visa for France: The Complete Guide for African Patients</div>
+          <p class="card-excerpt">Everything you need to know about obtaining a French medical visa — required documents, timelines, and how to avoid the most common refusals.</p>
+          <div class="card-footer">
+            <span class="card-read">Read Article</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 2 -->
+      <a href="article-paris-vs-geneva.html" class="blog-card fade-up">
+        <div class="card-visual" style="background:#102030;">
+          <div class="card-visual-letter">P</div>
+          <div class="card-visual-overlay">
+            <span class="card-category">Destinations</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">5 min read &nbsp;·&nbsp; Paris · Geneva</div>
+          <div class="card-title">Paris vs Geneva for Medical Treatment: Which City Should You Choose?</div>
+          <p class="card-excerpt">Two of Europe's greatest medical cities compared across cost, access, discretion, and speciality — so you can make the right choice for your condition.</p>
+          <div class="card-footer">
+            <span class="card-read">Read Article</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 3 -->
+      <a href="article-questions-hospital.html" class="blog-card fade-up">
+        <div class="card-visual" style="background:#0a1a2e;">
+          <div class="card-visual-letter">Q</div>
+          <div class="card-visual-overlay">
+            <span class="card-category">Patient Guide</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">4 min read &nbsp;·&nbsp; All Destinations</div>
+          <div class="card-title">10 Questions to Ask Before Choosing a Hospital Abroad</div>
+          <p class="card-excerpt">Before committing to treatment in a foreign country, these are the questions every international patient — and their family — must ask.</p>
+          <div class="card-footer">
+            <span class="card-read">Read Article</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 4 -->
+      <a href="article-cardiac-surgery-europe.html" class="blog-card fade-up">
+        <div class="card-visual" style="background:#122040;">
+          <div class="card-visual-letter">H</div>
+          <div class="card-visual-overlay">
+            <span class="card-category">Cardiology</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">7 min read &nbsp;·&nbsp; London · Berlin</div>
+          <div class="card-title">Heart Surgery in Europe: What International Patients Need to Know</div>
+          <p class="card-excerpt">Cardiac surgery abroad requires careful planning. This guide explains how to identify the right surgeon, understand risks, and prepare for a safe journey.</p>
+          <div class="card-footer">
+            <span class="card-read">Read Article</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- CARD 5 -->
+      <a href="article-medical-travel-nigeria.html" class="blog-card fade-up">
+        <div class="card-visual" style="background:#0e2238;">
+          <div class="card-visual-letter">N</div>
+          <div class="card-visual-overlay">
+            <span class="card-category">Regional Guide</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">5 min read &nbsp;·&nbsp; Nigeria</div>
+          <div class="card-title">Medical Travel from Nigeria to Europe: A Practical Guide</div>
+          <p class="card-excerpt">For Nigerian families seeking specialist care in Europe, this guide covers every step — from choosing a hospital to managing the logistics of an international medical trip.</p>
+          <div class="card-footer">
+            <span class="card-read">Read Article</span>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="container" style="max-width: 600px;">
+    <h2>Stay <em>Informed</em></h2>
+    <p>Receive our expert guides on medical travel, European healthcare, and patient rights — delivered discreetly to your inbox.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address">
+      <button>Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo">Noble<span>Care</span></a>
+    <div class="footer-links">
+      <a href="services.html">Services</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
+  });
+  const observer = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
