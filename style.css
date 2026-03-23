@@ -72,18 +72,14 @@ nav {
 .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile nav drawer */
+/* Mobile nav — display/opacity controlled 100% by JS */
 .mobile-nav {
-  display: none;
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: var(--navy);
   z-index: 1100;
   flex-direction: column; align-items: center; justify-content: center;
   gap: 1.8rem; padding: 2rem;
-  opacity: 0; transition: opacity 0.3s ease;
-}
-.mobile-nav.open {
-  display: flex;
-  opacity: 1;
+  display: none; opacity: 0;
 }
 .mobile-nav a {
   font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white);
@@ -206,4 +202,26 @@ footer { background: var(--navy); padding: 3rem 4rem; border-top: 1px solid rgba
   .footer-links { justify-content: center; gap: 1rem; }
   footer { padding: 2rem 1.2rem; }
   .marquee-track span { padding: 0 1rem; font-size: 0.55rem; }
+}
+
+/* ══════════════════════════════
+   LANGUAGE SELECTOR
+══════════════════════════════ */
+.lang-selector {
+  display: flex; align-items: center; gap: 2px;
+  margin-left: 1rem;
+}
+.lang-btn {
+  font-size: 0.55rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 6px;
+  background: transparent; border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.45); cursor: pointer;
+  transition: all 0.2s; font-family: var(--sans);
+}
+.lang-btn:hover { color: var(--gold); border-color: rgba(201,168,76,0.4); }
+.lang-btn.active { color: var(--gold); border-color: var(--gold); background: rgba(201,168,76,0.08); }
+
+@media (max-width: 1024px) {
+  .lang-selector { margin-left: 0; }
+  .lang-btn { font-size: 0.6rem; padding: 4px 8px; }
 }

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
 <style>
   /* ── HERO ── */
   .hero {
@@ -120,28 +121,34 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="destinations.html">Destinations</a></li>
-    <li><a href="process.html">Process</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html" class="active"><span data-i18n="nav_home">Home</span></a></li>
+    <li><a href="services.html"><span data-i18n="nav_services">Services</span></a></li>
+    <li><a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a></li>
+    <li><a href="process.html"><span data-i18n="nav_process">Process</span></a></li>
+    <li><a href="about.html"><span data-i18n="nav_about">About</span></a></li>
+    <li><a href="blog.html"><span data-i18n="nav_blog">Blog</span></a></li>
+    <li><a href="contact.html"><span data-i18n="nav_contact">Contact</span></a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Private Consultation</a>
+  <div class="lang-selector">
+    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
+    <button class="lang-btn" data-lang="fr" onclick="applyLang('fr')">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="applyLang('es')">ES</button>
+    <button class="lang-btn" data-lang="pt" onclick="applyLang('pt')">PT</button>
+  </div>
+  <a href="contact.html" class="nav-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html" class="active">Home</a>
-  <a href="services.html" >Services</a>
-  <a href="destinations.html" >Destinations</a>
-  <a href="process.html" >Process</a>
-  <a href="about.html" >About</a>
-  <a href="blog.html" >Blog</a>
-  <a href="contact.html" >Contact</a>
-  <a href="contact.html" class="mobile-cta">Private Consultation</a>
+  <a href="index.html" class="active"><span data-i18n="nav_home">Home</span></a>
+  <a href="services.html" ><span data-i18n="nav_services">Services</span></a>
+  <a href="destinations.html" ><span data-i18n="nav_destinations">Destinations</span></a>
+  <a href="process.html" ><span data-i18n="nav_process">Process</span></a>
+  <a href="about.html" ><span data-i18n="nav_about">About</span></a>
+  <a href="blog.html" ><span data-i18n="nav_blog">Blog</span></a>
+  <a href="contact.html" ><span data-i18n="nav_contact">Contact</span></a>
+  <a href="contact.html" class="mobile-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
 </div>
 
 <!-- HERO -->
@@ -151,24 +158,24 @@
   <div class="hero-accent"></div>
   <div class="hero-content">
     <div class="hero-text">
-      <p class="eyebrow">International Medical Concierge</p>
-      <h1>Access the World's<br><em>Finest Medical</em><br>Expertise</h1>
-      <p>We connect distinguished international patients with the most advanced medical institutions in Europe — handling every detail from specialist appointments to private travel arrangements.</p>
+      <p class="eyebrow" data-i18n="hero_eyebrow">International Medical Concierge</p>
+      <h1><span data-i18n="hero_h1_1">Access the World's</span><br><em data-i18n="hero_h1_2">Finest Medical</em><br><span data-i18n="hero_h1_3">Expertise</span></h1>
+      <p data-i18n="hero_p">We connect distinguished international patients with the most advanced medical institutions in Europe — handling every detail from specialist appointments to private travel arrangements.</p>
       <div class="hero-actions">
-        <a href="contact.html" class="btn-primary">Request a Private Consultation</a>
-        <a href="process.html" class="btn-ghost">How it works</a>
+        <a href="contact.html" class="btn-primary"><span data-i18n="hero_btn">Request a Private Consultation</span></a>
+        <a href="process.html" class="btn-ghost"><span data-i18n="hero_btn2">How it works</span></a>
       </div>
       <div class="hero-badges">
-        <span class="badge">Absolute Confidentiality</span>
-        <span class="badge">24/7 Dedicated Support</span>
-        <span class="badge">Multilingual Assistance</span>
+        <span class="badge" data-i18n="badge1">Absolute Confidentiality</span>
+        <span class="badge" data-i18n="badge2">24/7 Dedicated Support</span>
+        <span class="badge" data-i18n="badge3">Multilingual Assistance</span>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Average response time</div></div>
-      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Partner institutions</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Medical destinations</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Confidential service</div></div>
+      <div class="stat"><div class="stat-num">48h</div><div class="stat-label" data-i18n="stat1_label">Average response time</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label" data-i18n="stat2_label">Partner institutions</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label" data-i18n="stat3_label">Medical destinations</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat4_label">Confidential service</div></div>
     </div>
   </div>
 </section>
@@ -184,7 +191,7 @@
 <!-- OVERVIEW -->
 <section class="overview">
   <div class="container">
-    <p class="section-tag">What We Offer</p>
+    <p class="section-tag" data-i18n="overview_tag">What We Offer</p>
     <h2 class="section-title">Everything You Need,<br><em>Perfectly Orchestrated</em></h2>
     <div class="overview-grid">
       <a href="services.html" class="ov-card fade-up">
@@ -216,25 +223,25 @@
     <div style="height: 320px; overflow: hidden; position: relative;">
       <img src="img-luxury.jpg" alt="Luxury interior" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
-        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">VIP Hospitality</span>
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);" data-i18n="gal1">VIP Hospitality</span>
       </div>
     </div>
     <div style="height: 320px; overflow: hidden; position: relative;">
       <img src="img-paris.jpg" alt="Paris Place Vendôme" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
-        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Paris, France</span>
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);" data-i18n="gal2">Paris, France</span>
       </div>
     </div>
     <div style="height: 320px; overflow: hidden; position: relative;">
       <img src="img-sculpture.jpg" alt="European excellence" style="width:100%; height:100%; object-fit:cover; object-position: top; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
-        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">European Excellence</span>
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);" data-i18n="gal3">European Excellence</span>
       </div>
     </div>
     <div style="height: 320px; overflow: hidden; position: relative;">
       <img src="img-jet.jpg" alt="Private travel" style="width:100%; height:100%; object-fit:cover; transition: transform 0.6s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
       <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,0.7) 0%,transparent 50%);display:flex;align-items:flex-end;padding:1.5rem;">
-        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);">Private Travel</span>
+        <span style="font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);" data-i18n="gal4">Private Travel</span>
       </div>
     </div>
   </div>
@@ -243,8 +250,8 @@
 <!-- CTA -->
 <div class="cta-banner">
   <div class="container" style="max-width:700px;">
-    <h2>Your health cannot wait.<br><em>Neither can we.</em></h2>
-    <p>Our team responds within 48 hours to every inquiry, with absolute discretion and professional care.</p>
+    <h2><span data-i18n="cta_title1">Your health cannot wait.</span><br><em data-i18n="cta_title2">Neither can we.</em></h2>
+    <p data-i18n="cta_p">Our team responds within 48 hours to every inquiry, with absolute discretion and professional care.</p>
     <a href="contact.html" class="btn-primary">Request a Private Consultation</a>
   </div>
 </div>
@@ -253,14 +260,14 @@
   <div class="footer-inner">
     <a href="index.html" class="footer-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
     <div class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="process.html">Process</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a>
+      <a href="process.html"><span data-i18n="nav_process">Process</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="blog.html"><span data-i18n="nav_blog">Blog</span></a>
+      <a href="contact.html"><span data-i18n="nav_contact">Contact</span></a>
     </div>
-    <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
+    <div class="footer-text" data-i18n="footer_copy">© 2025 NobleCare. All rights reserved.</div>
   </div>
 </footer>
 

@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="lang.js"></script>
 <style>
   .process-section { background: var(--off-white); }
   .steps-wrap { margin-top: 4rem; display: flex; flex-direction: column; gap: 0; }
@@ -49,28 +50,34 @@
 <nav>
   <a href="index.html" class="nav-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="destinations.html">Destinations</a></li>
-    <li><a href="process.html" class="active">Process</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html"><span data-i18n="nav_home">Home</span></a></li>
+    <li><a href="services.html"><span data-i18n="nav_services">Services</span></a></li>
+    <li><a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a></li>
+    <li><a href="process.html" class="active"><span data-i18n="nav_process">Process</span></a></li>
+    <li><a href="about.html"><span data-i18n="nav_about">About</span></a></li>
+    <li><a href="blog.html"><span data-i18n="nav_blog">Blog</span></a></li>
+    <li><a href="contact.html"><span data-i18n="nav_contact">Contact</span></a></li>
   </ul>
-  <a href="contact.html" class="nav-cta">Private Consultation</a>
+  <div class="lang-selector">
+    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
+    <button class="lang-btn" data-lang="fr" onclick="applyLang('fr')">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="applyLang('es')">ES</button>
+    <button class="lang-btn" data-lang="pt" onclick="applyLang('pt')">PT</button>
+  </div>
+  <a href="contact.html" class="nav-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
   <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
-  <a href="index.html" >Home</a>
-  <a href="services.html" >Services</a>
-  <a href="destinations.html" >Destinations</a>
-  <a href="process.html" class="active">Process</a>
-  <a href="about.html" >About</a>
-  <a href="blog.html" >Blog</a>
-  <a href="contact.html" >Contact</a>
-  <a href="contact.html" class="mobile-cta">Private Consultation</a>
+  <a href="index.html" ><span data-i18n="nav_home">Home</span></a>
+  <a href="services.html" ><span data-i18n="nav_services">Services</span></a>
+  <a href="destinations.html" ><span data-i18n="nav_destinations">Destinations</span></a>
+  <a href="process.html" class="active"><span data-i18n="nav_process">Process</span></a>
+  <a href="about.html" ><span data-i18n="nav_about">About</span></a>
+  <a href="blog.html" ><span data-i18n="nav_blog">Blog</span></a>
+  <a href="contact.html" ><span data-i18n="nav_contact">Contact</span></a>
+  <a href="contact.html" class="mobile-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
 </div>
 
 <div class="page-header">
@@ -209,11 +216,11 @@
   <div class="footer-inner">
     <a href="index.html" class="footer-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
     <div class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="destinations.html">Destinations</a>
-      <a href="process.html">Process</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a>
+      <a href="process.html"><span data-i18n="nav_process">Process</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="contact.html"><span data-i18n="nav_contact">Contact</span></a>
     </div>
     <div class="footer-text">© 2025 NobleCare. All rights reserved.</div>
   </div>
