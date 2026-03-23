@@ -57,33 +57,45 @@ nav {
 /* Hamburger */
 .menu-toggle {
   display: none; flex-direction: column; justify-content: center;
-  gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 1100;
+  gap: 5px; background: none; border: none; cursor: pointer;
+  padding: 8px; z-index: 1200;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .menu-toggle span {
-  display: block; width: 24px; height: 1.5px; background: var(--white);
-  transition: all 0.3s; transform-origin: center;
+  display: block; width: 24px; height: 2px; background: var(--white);
+  transition: all 0.35s ease; transform-origin: center;
+  border-radius: 2px;
 }
-.menu-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.menu-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile nav drawer */
 .mobile-nav {
-  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--navy); z-index: 999;
-  flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
-  padding: 2rem;
+  display: none;
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--navy);
+  z-index: 1100;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.8rem; padding: 2rem;
+  opacity: 0; transition: opacity 0.3s ease;
 }
-.mobile-nav.open { display: flex; }
+.mobile-nav.open {
+  display: flex;
+  opacity: 1;
+}
 .mobile-nav a {
   font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--white);
-  text-decoration: none; letter-spacing: 0.05em; transition: color 0.3s;
+  text-decoration: none; letter-spacing: 0.05em; transition: color 0.25s;
+  -webkit-tap-highlight-color: transparent;
 }
 .mobile-nav a:hover, .mobile-nav a.active { color: var(--gold); }
 .mobile-nav .mobile-cta {
   margin-top: 1rem; font-family: var(--sans); font-size: 0.65rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase; padding: 1rem 2.5rem;
+  letter-spacing: 0.2em; text-transform: uppercase; padding: 0.9rem 2.5rem;
   border: 1px solid var(--gold); color: var(--gold); text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ══════════════════════════════
