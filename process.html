@@ -41,12 +41,7 @@
   .tn-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--gold); }
   .tn-label { font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
 
-  @media (max-width: 900px) {
-    .step-body { grid-template-columns: 1fr; }
-    .step-row { grid-template-columns: 80px 1fr; }
-    .timeline-note { grid-template-columns: 1fr; }
-    section { padding: 3rem 1.5rem; }
-  }
+  @media (max-width: 900px) { .step-body { grid-template-columns: 1fr; } .step-row { grid-template-columns: 70px 1fr; } .timeline-note { grid-template-columns: 1fr; } } @media (max-width: 640px) { .step-num { font-size: 1.8rem; } .step-body { padding: 1.5rem 1.2rem; } .step-num-col { padding: 1.5rem 0.5rem; } }
 </style>
 </head>
 <body>
@@ -63,8 +58,20 @@
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Private Consultation</a>
-  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" >Home</a>
+  <a href="services.html" >Services</a>
+  <a href="destinations.html" >Destinations</a>
+  <a href="process.html" class="active">Process</a>
+  <a href="about.html" >About</a>
+  <a href="blog.html" >Blog</a>
+  <a href="contact.html" >Contact</a>
+  <a href="contact.html" class="mobile-cta">Private Consultation</a>
+</div>
 
 <div class="page-header">
   <div class="page-header-bg"></div>
@@ -212,12 +219,81 @@
   </div>
 </footer>
 
+
+
+
+
+
+
+
 <script>
-  window.addEventListener('scroll', () => {
-    document.querySelector('nav').style.padding = window.scrollY > 50 ? '1rem 4rem' : '1.5rem 4rem';
+document.addEventListener('DOMContentLoaded', function() {
+  var toggle = document.getElementById('menuToggle');
+  var menu   = document.getElementById('mobileNav');
+  if (!toggle || !menu) return;
+
+  var isOpen = false;
+
+  menu.style.display  = 'none';
+  menu.style.opacity  = '0';
+  menu.style.transition = 'opacity 0.25s ease';
+
+  function openMenu() {
+    isOpen = true;
+    menu.style.display = 'flex';
+    requestAnimationFrame(function() {
+      menu.style.opacity = '1';
+    });
+    toggle.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    isOpen = false;
+    menu.style.opacity = '0';
+    toggle.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(function() { menu.style.display = 'none'; }, 260);
+  }
+
+  function handleToggle(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (isOpen) { closeMenu(); } else { openMenu(); }
+  }
+
+  toggle.addEventListener('click',      handleToggle, { passive: false });
+  toggle.addEventListener('touchend',   handleToggle, { passive: false });
+
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click',    closeMenu);
+    a.addEventListener('touchend', closeMenu);
   });
-  const observer = new IntersectionObserver(e => e.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && isOpen) closeMenu();
+  });
+
+  // Scroll shrink — desktop only, mobile unchanged
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    nav.style.padding = window.scrollY > 50
+      ? (window.innerWidth > 640 ? '0.6rem 4rem' : '0.6rem 1.2rem')
+      : (window.innerWidth > 1024 ? '1.2rem 4rem' : '1rem 1.5rem');
+  }, { passive: true });
+
+  // Fade up
+  var fadeEls = document.querySelectorAll('.fade-up');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(function(el) { obs.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('visible'); });
+  }
+});
 </script>
 </body>
 </html>
