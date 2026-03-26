@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Packages — NobleCare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+
+  /* ── PRICING SECTION ── */
+  .pricing-hero { background: var(--off-white); padding: 5rem 4rem; }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    align-items: stretch;
+  }
+
+  /* ── BASE CARD ── */
+  .pkg-card {
+    display: flex; flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(10,22,40,0.08);
+    position: relative;
+    transition: transform 0.3s;
+  }
+  .pkg-card:hover { transform: translateY(-6px); z-index: 2; }
+
+  /* ── ESSENTIAL ── */
+  .pkg-essential {
+    border-top: 4px solid #a0a0a0;
+  }
+  .pkg-essential .pkg-badge { background: #a0a0a0; color: white; }
+  .pkg-essential .pkg-name { color: #5a5a5a; }
+  .pkg-essential .pkg-price { color: var(--navy); }
+  .pkg-essential .check { color: #a0a0a0; }
+  .pkg-essential .pkg-cta {
+    background: transparent; border: 2px solid #a0a0a0; color: #5a5a5a;
+  }
+  .pkg-essential .pkg-cta:hover { background: #a0a0a0; color: white; }
+
+  /* ── EXECUTIVE (featured) ── */
+  .pkg-executive {
+    background: var(--navy);
+    border: none;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 20px 60px rgba(10,22,40,0.25);
+    transform: translateY(-12px);
+    z-index: 3;
+  }
+  .pkg-executive:hover { transform: translateY(-18px); }
+  .pkg-executive .pkg-badge { background: var(--gold); color: var(--navy); }
+  .pkg-executive .pkg-eyebrow { color: rgba(255,255,255,0.45); }
+  .pkg-executive .pkg-name { color: var(--gold-light); }
+  .pkg-executive .pkg-price { color: white; }
+  .pkg-executive .pkg-price-sub { color: rgba(255,255,255,0.45); }
+  .pkg-executive .pkg-desc { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.08); }
+  .pkg-executive .pkg-feature { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06); }
+  .pkg-executive .check { color: var(--gold); }
+  .pkg-executive .pkg-includes { color: rgba(255,255,255,0.35); }
+  .pkg-executive .pkg-cta {
+    background: var(--gold); border: 2px solid var(--gold); color: var(--navy);
+  }
+  .pkg-executive .pkg-cta:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .pkg-executive .pkg-popular {
+    display: inline-block;
+  }
+
+  /* ── SOVEREIGN ── */
+  .pkg-sovereign {
+    border-top: 4px solid #b8972a;
+    background: var(--navy);
+  }
+  .pkg-sovereign .pkg-badge { background: linear-gradient(135deg, #c9a84c, #e2c97e); color: var(--navy); }
+  .pkg-sovereign .pkg-eyebrow { color: rgba(255,255,255,0.45); }
+  .pkg-sovereign .pkg-name { color: var(--gold-light); }
+  .pkg-sovereign .pkg-price { color: white; }
+  .pkg-sovereign .pkg-price-sub { color: rgba(255,255,255,0.45); }
+  .pkg-sovereign .pkg-desc { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.08); }
+  .pkg-sovereign .pkg-feature { color: rgba(255,255,255,0.75); border-bottom-color: rgba(255,255,255,0.06); }
+  .pkg-sovereign .check { color: var(--gold); }
+  .pkg-sovereign .pkg-includes { color: rgba(255,255,255,0.35); }
+  .pkg-sovereign .pkg-cta {
+    background: transparent; border: 2px solid var(--gold); color: var(--gold);
+  }
+  .pkg-sovereign .pkg-cta:hover { background: var(--gold); color: var(--navy); }
+
+  /* ── CARD INNER ── */
+  .pkg-header { padding: 2.5rem 2.5rem 2rem; }
+  .pkg-badge {
+    display: inline-block;
+    font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 0.35rem 0.85rem; margin-bottom: 1.5rem;
+  }
+  .pkg-popular {
+    display: none;
+    font-size: 0.55rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.75rem; background: rgba(201,168,76,0.15); color: var(--gold);
+    margin-left: 0.5rem; vertical-align: middle;
+  }
+  .pkg-eyebrow {
+    font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 0.4rem;
+  }
+  .pkg-name {
+    font-family: var(--serif); font-size: 1.8rem; font-weight: 300;
+    color: var(--navy); margin-bottom: 1.25rem; line-height: 1.1;
+  }
+  .pkg-price-wrap { margin-bottom: 0.5rem; }
+  .pkg-price {
+    font-family: var(--serif); font-size: 2.8rem; font-weight: 300;
+    color: var(--navy); line-height: 1;
+  }
+  .pkg-price-sub {
+    font-size: 0.65rem; font-family: var(--sans); font-weight: 400;
+    color: var(--text-light); letter-spacing: 0.05em; margin-top: 0.3rem;
+  }
+  .pkg-desc {
+    font-size: 0.78rem; line-height: 1.75; color: var(--text-mid);
+    padding: 1.5rem 0; border-bottom: 1px solid rgba(10,22,40,0.07);
+    margin-top: 1rem;
+  }
+
+  .pkg-features { padding: 0 2.5rem 1.5rem; flex: 1; }
+  .pkg-includes {
+    font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-light); margin: 1.5rem 0 1rem;
+  }
+  .pkg-feature {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    font-size: 0.75rem; color: var(--text-mid); line-height: 1.5;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(10,22,40,0.05);
+  }
+  .pkg-feature:last-child { border-bottom: none; }
+  .check {
+    flex-shrink: 0; margin-top: 0.1rem;
+    font-size: 0.75rem; color: var(--gold); font-weight: 600;
+  }
+  .pkg-tag {
+    display: inline-block;
+    font-size: 0.55rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.2rem 0.5rem; background: rgba(201,168,76,0.12); color: var(--gold);
+    margin-left: 0.4rem; vertical-align: middle;
+  }
+
+  .pkg-footer { padding: 2rem 2.5rem 2.5rem; margin-top: auto; }
+  .pkg-cta {
+    display: block; width: 100%; text-align: center;
+    font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 1rem; text-decoration: none;
+    transition: all 0.3s; cursor: pointer;
+  }
+
+  /* ── COMPARISON NOTE ── */
+  .comparison-note {
+    background: var(--off-white); padding: 4rem;
+    text-align: center;
+  }
+  .note-title {
+    font-family: var(--serif); font-size: 1.6rem; font-weight: 300;
+    color: var(--navy); margin-bottom: 0.75rem;
+  }
+  .note-title em { font-style: italic; color: var(--gold); }
+  .note-text {
+    font-size: 0.8rem; color: var(--text-mid); line-height: 1.8;
+    max-width: 600px; margin: 0 auto 2rem;
+  }
+
+  /* ── GUARANTEE STRIP ── */
+  .guarantee-strip {
+    background: var(--navy); padding: 2.5rem 4rem;
+    display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;
+  }
+  .guarantee-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-size: 0.68rem; font-family: var(--sans); color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+  }
+  .guarantee-icon { font-size: 1.1rem; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .packages-grid { grid-template-columns: 1fr; gap: 1.5px; }
+    .pkg-executive { transform: none; }
+    .pkg-executive:hover { transform: translateY(-6px); }
+  }
+  @media (max-width: 640px) {
+    .pricing-hero { padding: 3rem 1.2rem; }
+    .guarantee-strip { gap: 1.5rem; padding: 2rem 1.2rem; flex-direction: column; align-items: center; }
+    .comparison-note { padding: 3rem 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html"><span data-i18n="nav_home">Home</span></a></li>
+    <li><a href="services.html"><span data-i18n="nav_services">Services</span></a></li>
+    <li><a href="pricing.html" class="active"><span data-i18n="nav_pricing">Packages</span></a></li>
+    <li><a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a></li>
+    <li><a href="process.html"><span data-i18n="nav_process">Process</span></a></li>
+    <li><a href="about.html"><span data-i18n="nav_about">About</span></a></li>
+    <li><a href="blog.html"><span data-i18n="nav_blog">Blog</span></a></li>
+    <li><a href="contact.html"><span data-i18n="nav_contact">Contact</span></a></li>
+  </ul>
+  <div class="lang-selector">
+    <button class="lang-btn" data-lang="en" onclick="applyLang('en')">EN</button>
+    <button class="lang-btn" data-lang="fr" onclick="applyLang('fr')">FR</button>
+    <button class="lang-btn" data-lang="es" onclick="applyLang('es')">ES</button>
+    <button class="lang-btn" data-lang="pt" onclick="applyLang('pt')">PT</button>
+  </div>
+  <a href="contact.html" class="nav-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html"><span data-i18n="nav_home">Home</span></a>
+  <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+  <a href="pricing.html" class="active"><span data-i18n="nav_pricing">Packages</span></a>
+  <a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a>
+  <a href="process.html"><span data-i18n="nav_process">Process</span></a>
+  <a href="about.html"><span data-i18n="nav_about">About</span></a>
+  <a href="blog.html"><span data-i18n="nav_blog">Blog</span></a>
+  <a href="contact.html"><span data-i18n="nav_contact">Contact</span></a>
+  <a href="contact.html" class="mobile-cta"><span data-i18n="nav_cta">Private Consultation</span></a>
+</div>
+
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="page-header-content container">
+    <p class="eyebrow" data-i18n="pkg_eyebrow">Our Packages</p>
+    <h1><span data-i18n="pkg_h1_1">Choose the Level of Care</span><br><em data-i18n="pkg_h1_2">That Suits You</em></h1>
+  </div>
+</div>
+
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span data-i18n="pkg_m1">Essential Medical</span><span>◆</span>
+    <span data-i18n="pkg_m2">Executive Care</span><span>◆</span>
+    <span data-i18n="pkg_m3">Sovereign Care</span><span>◆</span>
+    <span data-i18n="pkg_m1">Essential Medical</span><span>◆</span>
+    <span data-i18n="pkg_m2">Executive Care</span><span>◆</span>
+    <span data-i18n="pkg_m3">Sovereign Care</span><span>◆</span>
+  </div>
+</div>
+
+<!-- PACKAGES -->
+<section class="pricing-hero">
+  <div class="container">
+    <p class="section-tag" data-i18n="pkg_tag">3 Packages</p>
+    <h2 class="section-title"><span data-i18n="pkg_h2_1">Exceptional Care,</span><br><em data-i18n="pkg_h2_2">Three Levels of Excellence</em></h2>
+    <p class="section-sub" data-i18n="pkg_sub">Every NobleCare package includes access to Europe's finest medical institutions. The difference lies in the level of personalisation, comfort, and exclusivity we provide around your care.</p>
+
+    <div class="packages-grid">
+
+      <!-- ── ESSENTIAL ── -->
+      <div class="pkg-card pkg-essential fade-up">
+        <div class="pkg-header">
+          <div class="pkg-badge" data-i18n="pkg1_badge">Essential</div>
+          <div class="pkg-eyebrow" data-i18n="pkg1_eyebrow">Foundation Package</div>
+          <div class="pkg-name" data-i18n="pkg1_name">Essential Medical</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">€20,000</div>
+            <div class="pkg-price-sub" data-i18n="pkg_per_case">per case, all-inclusive</div>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg1_desc">A streamlined yet effective medical coordination service for clients who want the best European care without the full luxury accompaniment. Efficient, professional, and discreet.</p>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-includes" data-i18n="pkg_includes">What's included</div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f1">Complete medical file analysis & specialist identification</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f2">Priority appointment scheduling at top European hospitals</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f3">Medical visa procurement & administrative support</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f4">Airport–hospital private vehicle transfers</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f5">Business or first class flights coordination</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f6">4-star hotel accommodation</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg1_f7">Minimum administrative assistance throughout the stay</span></div>
+        </div>
+        <div class="pkg-footer">
+          <a href="contact.html" class="pkg-cta" data-i18n="pkg_select">Request This Package</a>
+        </div>
+      </div>
+
+      <!-- ── EXECUTIVE ── -->
+      <div class="pkg-card pkg-executive fade-up">
+        <div class="pkg-header">
+          <div>
+            <div class="pkg-badge" data-i18n="pkg2_badge">Executive</div>
+            <span class="pkg-popular" data-i18n="pkg_popular">Most Popular</span>
+          </div>
+          <div class="pkg-eyebrow" data-i18n="pkg2_eyebrow">Premium Package</div>
+          <div class="pkg-name" data-i18n="pkg2_name">Executive Care</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">€45,000</div>
+            <div class="pkg-price-sub" data-i18n="pkg_per_case">per case, all-inclusive</div>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg2_desc">A fully comprehensive premium service. Everything in Essential, elevated with 24/7 personal accompaniment, 5-star accommodation, private driver, and full post-operative coordination.</p>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-includes" data-i18n="pkg_everything">Everything in Essential, plus</div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f1">24/7 dedicated personal assistant throughout the stay</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f2">5-star hotel or premium hospital suite</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f3">Private chauffeur available for the entire stay</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f4">Personal interpreter for all medical consultations</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f5">Dietary meal adaptation upon request</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f6">Full post-operative care coordination</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg2_f7">Cultural visits & leisure activities on request</span></div>
+        </div>
+        <div class="pkg-footer">
+          <a href="contact.html" class="pkg-cta" data-i18n="pkg_select">Request This Package</a>
+        </div>
+      </div>
+
+      <!-- ── SOVEREIGN ── -->
+      <div class="pkg-card pkg-sovereign fade-up">
+        <div class="pkg-header">
+          <div class="pkg-badge" data-i18n="pkg3_badge">Sovereign</div>
+          <div class="pkg-eyebrow" data-i18n="pkg3_eyebrow">Ultra-Luxury Package</div>
+          <div class="pkg-name" data-i18n="pkg3_name">Sovereign Care</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price" data-i18n="pkg3_price">From €150,000</div>
+            <div class="pkg-price-sub" data-i18n="pkg3_price_sub">fully bespoke — tailored to your needs</div>
+          </div>
+          <p class="pkg-desc" data-i18n="pkg3_desc">The ultimate ultra-luxury, zero-compromise experience. Every detail is curated to the highest standard. No waiting, no friction — only the finest care and the most exclusive service in the world.</p>
+        </div>
+        <div class="pkg-features">
+          <div class="pkg-includes" data-i18n="pkg_sovereign_inc">Everything in Executive, plus</div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f1">Private jet or limousine transport <span class="pkg-tag" data-i18n="tag_exclusive">Exclusive</span></span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f2">Palace or international prestige hotel stay</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f3">Personal bodyguard security detail if required</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f4">Priority access to the world's most renowned specialists</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f5">Private chef, spa care & exclusive activities</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f6">Full family logistics management</span></div>
+          <div class="pkg-feature"><span class="check">✓</span><span data-i18n="pkg3_f7">Personalised remote follow-up after return home <span class="pkg-tag" data-i18n="tag_unique">Unique</span></span></div>
+        </div>
+        <div class="pkg-footer">
+          <a href="contact.html" class="pkg-cta" data-i18n="pkg3_cta">Request a Bespoke Quote</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE STRIP -->
+<div class="guarantee-strip">
+  <div class="guarantee-item"><span class="guarantee-icon">🔒</span><span data-i18n="g1">Absolute confidentiality</span></div>
+  <div class="guarantee-item"><span class="guarantee-icon">⏱</span><span data-i18n="g2">Response within 48 hours</span></div>
+  <div class="guarantee-item"><span class="guarantee-icon">🌍</span><span data-i18n="g3">Multilingual support</span></div>
+  <div class="guarantee-item"><span class="guarantee-icon">✦</span><span data-i18n="g4">Zero waiting policy</span></div>
+</div>
+
+<!-- COMPARISON NOTE -->
+<div class="comparison-note">
+  <div class="container" style="max-width:680px;">
+    <h3 class="note-title"><span data-i18n="note_title1">Not sure which package</span> <em data-i18n="note_title2">is right for you?</em></h3>
+    <p class="note-text" data-i18n="note_text">Every situation is unique. Our team will review your medical file and personal requirements to recommend the package that best meets your needs — at no obligation.</p>
+    <a href="contact.html" class="btn-primary" data-i18n="note_btn">Request a Free Consultation</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-logo"><img src="logo.png" alt="NobleCare">Noble<span>Care</span></a>
+    <div class="footer-links">
+      <a href="services.html"><span data-i18n="nav_services">Services</span></a>
+      <a href="pricing.html"><span data-i18n="nav_pricing">Packages</span></a>
+      <a href="destinations.html"><span data-i18n="nav_destinations">Destinations</span></a>
+      <a href="process.html"><span data-i18n="nav_process">Process</span></a>
+      <a href="about.html"><span data-i18n="nav_about">About</span></a>
+      <a href="blog.html"><span data-i18n="nav_blog">Blog</span></a>
+      <a href="contact.html"><span data-i18n="nav_contact">Contact</span></a>
+    </div>
+    <div class="footer-text" data-i18n="footer_copy">© 2025 NobleCare. All rights reserved.</div>
+  </div>
+</footer>
+
